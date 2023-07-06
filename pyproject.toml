@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "GPTer"
+name = "Open-Source LLM - CPU Inference"
 version = "0.1.0"
 description = ""
-authors = ["Kenneth Leung, Jack Yang"]
+authors = ["Kenneth Leung]
 license = ""
 readme = "README.md"
 
@@ -11,26 +11,17 @@ start = "main:app"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-boto3 = "1.26.149"
 faiss-cpu = "1.7.4"
-Flask = "2.3.2"
-langchain = "0.0.193"
-openai = "0.27.6"
+langchain = "0.0.225"
 pypdf = "3.8.1"
 python-dotenv = "1.0.0"
 python-box = "7.0.1"
 sentence-transformers = "2.2.2"
-sagemaker = "2.163.0"
-slack_bolt = "1.18.0"
-slack_sdk = "3.21.3"
 transformers = "4.29.0"
 ipykernel = "^6.23.1"
 ctransformers = "^0.2.5"
 fastapi = "^0.96.0"
 uvicorn = "^0.22.0"
-
-[tool.poetry.group.dev.dependencies]
-pylint = "^2.17.4"
 
 [build-system]
 requires = ["poetry-core"]
