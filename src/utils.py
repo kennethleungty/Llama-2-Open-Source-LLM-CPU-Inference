@@ -22,7 +22,7 @@ def set_qa_prompt():
     """
     Prompt template for QA retrieval for each vectorstore
     """
-    prompt = PromptTemplate(template=mpt_7b_qa_template,
+    prompt = PromptTemplate(template=qa_template,
                             input_variables=['context', 'question'])
     return prompt
 
@@ -41,7 +41,6 @@ def setup_dbqa():
     embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2",
                                        model_kwargs={'device': 'cpu'})
     vectordb = FAISS.load_local(cfg.DB_FAISS_PATH, embeddings)
-
     llm = build_llm()
     qa_prompt = set_qa_prompt()
     dbqa = build_retrieval_qa(llm, qa_prompt, vectordb)

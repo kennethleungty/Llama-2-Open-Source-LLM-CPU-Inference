@@ -2,7 +2,7 @@
 name = "Open-Source LLM - CPU Inference"
 version = "0.1.0"
 description = ""
-authors = ["Kenneth Leung]
+authors = ["Kenneth Leung"]
 license = ""
 readme = "README.md"
 
@@ -17,12 +17,11 @@ pypdf = "3.8.1"
 python-dotenv = "1.0.0"
 python-box = "7.0.1"
 sentence-transformers = "2.2.2"
-transformers = "4.29.0"
 ipykernel = "^6.23.1"
 ctransformers = "^0.2.5"
 fastapi = "^0.96.0"
 uvicorn = "^0.22.0"
-ctransformers
+
 
 [build-system]
 requires = ["poetry-core"]
