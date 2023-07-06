@@ -1,0 +1,1 @@
+Download the desired quantized MPT-7B-Instruct model from https://huggingface.co/TheBloke/MPT-7B-Instruct-GGML/tree/main

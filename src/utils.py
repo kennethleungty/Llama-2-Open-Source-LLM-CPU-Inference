@@ -10,8 +10,7 @@ from langchain import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
-from src.prompts import mpt_7b_qa_template
-from src.utils import set_qa_prompt, build_retrieval_qa
+from src.prompts import qa_template
 from src.llm import build_llm
 
 # Import config vars
