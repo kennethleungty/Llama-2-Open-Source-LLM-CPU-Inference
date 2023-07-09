@@ -25,9 +25,9 @@ if __name__ == "__main__":
     # Setup DBQA
     start = timeit.default_timer()
     dbqa = setup_dbqa()
-    response = dbqa({'query': 'How much is the minimum guarantee payable by adidas?'})
+    response = dbqa({'query': query})
     end = timeit.default_timer()
-    
+
     print(response['result'])
     print('='*50)
     print(response['source_documents'])
