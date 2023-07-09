@@ -20,7 +20,7 @@ if __name__ == "__main__":
                         default='How much is the minimum guarantee payable by adidas?',
                         help='Enter the query to pass into the LLM')
     args = parser.parse_args()
-    
+
     # Setup DBQA
     start = timeit.default_timer()
     dbqa = setup_dbqa()
