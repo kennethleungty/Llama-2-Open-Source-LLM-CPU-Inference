@@ -7,4 +7,4 @@ DB_FAISS_PATH: 'vectorstore/db_faiss'
 MODEL_TYPE: 'mpt'
 MODEL_BIN_PATH: 'models/mpt-7b-instruct.ggmlv3.q8_0.bin'
 MAX_NEW_TOKENS: 256
-TEMPERATURE: 0.1
+TEMPERATURE: 0.01
