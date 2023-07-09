@@ -15,17 +15,16 @@ with open('config/config.yml', 'r', encoding='utf8') as ymlfile:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('query',
+    parser.add_argument('input',
                         type=str,
                         default='How much is the minimum guarantee payable by adidas?',
                         help='Enter the query to pass into the LLM')
     args = parser.parse_args()
-    query = args.query
-
+    
     # Setup DBQA
     start = timeit.default_timer()
     dbqa = setup_dbqa()
-    response = dbqa({'query': query})
+    response = dbqa({'query': args.input})
     end = timeit.default_timer()
 
     print(response['result'])
