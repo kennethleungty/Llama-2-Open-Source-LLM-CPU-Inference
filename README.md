@@ -1,5 +1,18 @@
-# Open-Source-LLM-CPU-Inference
+# Running Open-Source LLMs on CPU Inference for Document Q&A
 
+### Clearly explained step-by-step guide on using C Transformers, GGML, and LangChain for running LLM Python applications on CPU instances
+___
+## Context
+
+
+___
+## Tools
+
+
+___
+## Files
+
+___
 
 ## References
 - https://github.com/marella/ctransformers
