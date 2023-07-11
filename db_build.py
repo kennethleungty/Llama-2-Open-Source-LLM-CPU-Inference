@@ -15,26 +15,19 @@ with open('config/config.yml', 'r', encoding='utf8') as ymlfile:
 
 # Build vector database
 def run_db_build():
-    print('Start DB Build')
     loader = DirectoryLoader(cfg.DATA_PATH,
-                             glob="*.pdf",
+                             glob='*.pdf',
                              loader_cls=PyPDFLoader)
     documents = loader.load()
-
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=cfg.CHUNK_SIZE,
                                                    chunk_overlap=cfg.CHUNK_OVERLAP)
     texts = text_splitter.split_documents(documents)
 
-    model_name = "sentence-transformers/all-MiniLM-L6-v2"
-    model_kwargs = {'device': 'cpu'}
-
-    embeddings = HuggingFaceEmbeddings(model_name=model_name,
-                                       model_kwargs=model_kwargs)
+    embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2',
+                                       model_kwargs={'device': 'cpu'})
 
     vectorstore = FAISS.from_documents(texts, embeddings)
     vectorstore.save_local(cfg.DB_FAISS_PATH)
-    print('FAISS Vectorstore - Build Complete')
-
 
 if __name__ == "__main__":
     run_db_build()
