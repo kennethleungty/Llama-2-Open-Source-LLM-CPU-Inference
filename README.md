@@ -49,4 +49,5 @@ ___
 - https://python.langchain.com/en/latest/integrations/ctransformers.html
 - https://python.langchain.com/en/latest/modules/models/llms/integrations/ctransformers.html
 - https://python.langchain.com/docs/ecosystem/integrations/ctransformers
+- https://ggml.ai
 - https://github.com/rustformers/llm/blob/main/crates/ggml/README.md
