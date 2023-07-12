@@ -2,7 +2,7 @@
 
 ### Clearly explained step-by-step guide on using C Transformers, GGML, and LangChain for running LLM Python applications on CPU instances
 
-**Link to TowardsDataScience article**: *Coming Soon*
+**Step-by-step guide on TowardsDataScience**: *Coming Soon*
 ___
 ## Context
 - Third-party commercial large language model (LLM) providers like OpenAI's GPT4 have democratized LLM use via simple API calls. 
@@ -19,7 +19,8 @@ ___
 `poetry run python main.py "<user query>"`
 - For example, `poetry run python main.py "What is the minimum guarantee payable by Adidas?"`
 - Note: Omit the prepended `poetry run` if you are NOT using Poetry
-
+<br><br>
+![Alt text](assets/qa_output.png)
 ___
 ## Tools
 - **LangChain**: Framework for developing applications powered by language models
