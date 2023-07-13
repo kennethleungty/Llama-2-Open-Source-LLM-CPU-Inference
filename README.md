@@ -40,7 +40,8 @@ ___
 - `/vectorstore`: FAISS vector store for documents
 - `db_build.py`: Python script to ingest dataset and generate FAISS vector store
 - `main.py`: Main Python script to launch the application and to pass user query via command line
-- `pyproject.toml`: File to specify which versions of the tools and dependencies used
+- `pyproject.toml`: TOML file to specify which versions of the dependencies used (Poetry)
+- `requirements.txt`: List of Python dependencies (and version)
 ___
 
 ## References
