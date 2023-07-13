@@ -11,15 +11,15 @@ start = "main:app"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+ctransformers = "^0.2.5"
 faiss-cpu = "1.7.4"
+fastapi = "^0.96.0"
+ipykernel = "^6.23.1"
 langchain = "0.0.225"
 pypdf = "3.8.1"
-python-dotenv = "1.0.0"
 python-box = "7.0.1"
+python-dotenv = "1.0.0"
 sentence-transformers = "2.2.2"
-ipykernel = "^6.23.1"
-ctransformers = "^0.2.5"
-fastapi = "^0.96.0"
 uvicorn = "^0.22.0"
 
 
