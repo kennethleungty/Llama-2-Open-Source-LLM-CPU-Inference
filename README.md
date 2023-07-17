@@ -53,4 +53,4 @@ ___
 - https://python.langchain.com/docs/ecosystem/integrations/ctransformers
 - https://ggml.ai
 - https://github.com/rustformers/llm/blob/main/crates/ggml/README.md
-- https://www.mdpi.com/2073-431X/12/3/60?fbclid=IwAR13q0RWtlLLyTNKSEPPlLO-YGeMSE6jZP_gGwQbHmhdy3cv6RfQPopevHA
+- https://www.mdpi.com/2189676
