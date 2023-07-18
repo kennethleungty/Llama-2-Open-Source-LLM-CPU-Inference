@@ -1,1 +1,2 @@
 Download the desired quantized MPT-7B-Instruct model from https://huggingface.co/TheBloke/MPT-7B-Instruct-GGML/tree/main
+Download the desired quantized Llama-2-7B-Chat model from https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main

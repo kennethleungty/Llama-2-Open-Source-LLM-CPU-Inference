@@ -17,7 +17,7 @@ with open('config/config.yml', 'r', encoding='utf8') as ymlfile:
 
 
 def build_llm():
-    # Local CTransformers MPT-7B-Instruct
+    # Local CTransformers model
     llm = CTransformers(model=cfg.MODEL_BIN_PATH,
                         model_type=cfg.MODEL_TYPE,
                         config={'max_new_tokens': cfg.MAX_NEW_TOKENS,
