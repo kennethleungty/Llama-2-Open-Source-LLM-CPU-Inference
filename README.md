@@ -11,7 +11,7 @@ ___
 - When we host open-source LLMs locally on-premise or in the cloud, the dedicated compute capacity becomes a key issue. While GPU instances may seem the obvious choice, the costs can easily skyrocket beyond budget.
 - In this project, we will discover how to run quantized versions of open-source LLMs on local CPU inference for document question-and-answer (Q&A).
 <br><br>
-![Alt text](assets/document_qa_flowchart.png)
+![Alt text](assets/diagram_flow.png)
 ___
 
 ## Quickstart
