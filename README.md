@@ -1,6 +1,6 @@
-# Running Open-Source LLMs on CPU Inference for Document Q&A
+# Running Llama 2 and other Open-Source LLMs on CPU Inference Locally for Document Q&A
 
-### Clearly explained step-by-step guide on using C Transformers, GGML, and LangChain for running LLM Python applications on CPU instances
+### Clearly explained guide for running quantized open-source LLM applications on CPUs using LLama 2, C Transformers, GGML, and LangChain
 
 **Step-by-step guide on TowardsDataScience**: https://kennethleungty.medium.com/running-llama-2-on-cpu-inference-for-document-q-a-3d636037a3d8
 ___
