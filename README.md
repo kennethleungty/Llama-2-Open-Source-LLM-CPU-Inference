@@ -2,7 +2,7 @@
 
 ### Clearly explained step-by-step guide on using C Transformers, GGML, and LangChain for running LLM Python applications on CPU instances
 
-**Step-by-step guide on TowardsDataScience**: *Coming Soon*
+**Step-by-step guide on TowardsDataScience**: https://kennethleungty.medium.com/running-llama-2-on-cpu-inference-for-document-q-a-3d636037a3d8
 ___
 ## Context
 - Third-party commercial large language model (LLM) providers like OpenAI's GPT4 have democratized LLM use via simple API calls. 
