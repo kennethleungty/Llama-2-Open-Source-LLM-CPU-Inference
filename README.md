@@ -15,7 +15,8 @@ ___
 ___
 
 ## Quickstart
-- To start passing user queries into the application, launch the terminal from the project directory and run the following command:
+- Ensure you have downloaded the GGML binary file from https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML and placed it into the `models/` folder
+- To start parsing user queries into the application, launch the terminal from the project directory and run the following command:
 `poetry run python main.py "<user query>"`
 - For example, `poetry run python main.py "What is the minimum guarantee payable by Adidas?"`
 - Note: Omit the prepended `poetry run` if you are NOT using Poetry
@@ -32,7 +33,7 @@ ___
 
 ___
 ## Files and Content
-- `/assets`: Images relevant to project
+- `/assets`: Images relevant to the project
 - `/config`: Configuration files for LLM application
 - `/data`: Dataset used for this project (i.e., Manchester United FC 2022 Annual Report - 177-page PDF document)
 - `/models`: Binary file of GGML quantized LLM model (i.e., Llama-2-7B-Chat) 
