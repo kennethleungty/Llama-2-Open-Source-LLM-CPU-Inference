@@ -43,7 +43,6 @@ def run_db_build():
     # loader = DirectoryLoader(cfg['DATA_PATH'],
     #                         glob='*.pdf',
     #                         loader_cls=PyPDFLoader)
-    # loader = PyPDFDirectoryLoader(cfg['DATA_PATH'])
 
     for root, _, files in os.walk(cfg['DATA_PATH']):
         for filename in files:
