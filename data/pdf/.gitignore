@@ -1,0 +1,5 @@
+# Ignore everything in this folder
+*
+# Except this file
+!.gitignore
+!manu-20f-2022-09-24.pdf
