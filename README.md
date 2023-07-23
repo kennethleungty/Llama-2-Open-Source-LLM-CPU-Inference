@@ -16,7 +16,7 @@ ___
 
 ## Quickstart
 - Ensure you have downloaded the GGML binary file from https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML and placed it into the `models/` folder
-- There is a sample PDF file in `data/pdf` folder as described in [Step 1 — Process data and build vector store](https://towardsdatascience.com/running-llama-2-on-cpu-inference-for-document-q-a-3d636037a3d8). You are welcome to add others.
+- There is a sample PDF file in `data/pdf` folder as described in [Step 1 — Process data and build vector store](https://towardsdatascience.com/running-llama-2-on-cpu-inference-for-document-q-a-3d636037a3d8). You are welcome to add others before run `python db_build.py`.
 - To start parsing user queries into the application, launch the terminal from the project directory and run the following command:
 `poetry run python main.py "<user query>"`
 - For example, `poetry run python main.py "What is the minimum guarantee payable by Adidas?"`
