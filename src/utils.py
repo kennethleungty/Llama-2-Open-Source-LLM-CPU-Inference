@@ -12,7 +12,7 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from src.prompts import qa_template
 from src.llm import build_llm
-
+from src.openaikeys import OPENAI_API
 # Import config vars
 with open('config/config.yml', 'r', encoding='utf8') as ymlfile:
     cfg = box.Box(yaml.safe_load(ymlfile))
@@ -42,7 +42,7 @@ def setup_dbqa(local=True):
         embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2",
                                        model_kwargs={'device': 'cpu'})
     else:
-        embeddings = OpenAIEmbeddings(openai_api_key="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")
+        embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API)
     vectordb = FAISS.load_local(cfg.DB_FAISS_PATH, embeddings)
     llm = build_llm(local)
     qa_prompt = set_qa_prompt()

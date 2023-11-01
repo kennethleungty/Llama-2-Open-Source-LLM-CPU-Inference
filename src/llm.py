@@ -8,6 +8,7 @@ from dotenv import find_dotenv, load_dotenv
 import box
 import yaml
 from langchain.llms import OpenAI
+from src.openaikeys import OPENAI_API
 # Load environment variables from .env file
 load_dotenv(find_dotenv())
 
@@ -25,6 +26,6 @@ def build_llm(local=True):
                                         'temperature': cfg.TEMPERATURE}
                                 )
     else:
-        llm = OpenAI(openai_api_key="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")
+        llm = OpenAI(openai_api_key=OPENAI_API)
 
     return llm
