@@ -63,7 +63,7 @@
     return (
       <div className="App">
         <header className="App-header">
-          <div className="CyberChad">CyberChad</div>
+          <div className="CyberChad">ChadPDF</div>
 
           <div className="search-container">
             <input 
