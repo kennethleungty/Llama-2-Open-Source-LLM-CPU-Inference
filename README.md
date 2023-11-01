@@ -1,6 +1,5 @@
-# Running Llama 2 and other Open-Source LLMs on CPU Inference Locally for Document Q&A
+# End to End ChatPDF for enterprise networks (CPU and GPU inference available)
 
-### Clearly explained guide for running quantized open-source LLM applications on CPUs using LLama 2, C Transformers, GGML, and LangChain
 
 **Step-by-step guide on TowardsDataScience**: https://towardsdatascience.com/running-llama-2-on-cpu-inference-for-document-q-a-3d636037a3d8
 ___
@@ -11,17 +10,15 @@ ___
 - When we host open-source LLMs locally on-premise or in the cloud, the dedicated compute capacity becomes a key issue. While GPU instances may seem the obvious choice, the costs can easily skyrocket beyond budget.
 - In this project, we will discover how to run quantized versions of open-source LLMs on local CPU inference for document question-and-answer (Q&A).
 <br><br>
-![Alt text](assets/diagram_flow.png)
+![Alt text](final_diagram.png)
 ___
 
 ## Quickstart
-- Ensure you have downloaded the GGML binary file from https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML and placed it into the `models/` folder
-- To start parsing user queries into the application, launch the terminal from the project directory and run the following command:
-`poetry run python main.py "<user query>"`
-- For example, `poetry run python main.py "What is the minimum guarantee payable by Adidas?"`
-- Note: Omit the prepended `poetry run` if you are NOT using Poetry
+- Ensure you have node installed on your device and npm.
+- **Frontend**: Run npm start in the qa directory
+- **Backend**: Run python3.8 main.py --local (if you want to run it without the need of OpenAI models) [If you want to make it online use --online] 
 <br><br>
-![Alt text](assets/qa_output.png)
+![Alt text](website.png)
 ___
 ## Tools
 - **LangChain**: Framework for developing applications powered by language models
@@ -29,8 +26,8 @@ ___
 - **FAISS**: Open-source library for efficient similarity search and clustering of dense vectors.
 - **Sentence-Transformers (all-MiniLM-L6-v2)**: Open-source pre-trained transformer model for embedding text to a 384-dimensional dense vector space for tasks like clustering or semantic search.
 - **Llama-2-7B-Chat**: Open-source fine-tuned Llama 2 model designed for chat dialogue. Leverages publicly available instruction datasets and over 1 million human annotations. 
-- **Poetry**: Tool for dependency management and Python packaging
-
+- **React**: Web development framework
+- **FastAPI**: Python backend framework
 ___
 ## Files and Content
 - `/assets`: Images relevant to the project
