@@ -5,7 +5,7 @@
 '''
 import box
 import yaml
-
+from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain.embeddings import HuggingFaceEmbeddings
@@ -37,11 +37,14 @@ def build_retrieval_qa(llm, prompt, vectordb):
     return dbqa
 
 
-def setup_dbqa():
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2",
+def setup_dbqa(local=True):
+    if local:
+        embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2",
                                        model_kwargs={'device': 'cpu'})
+    else:
+        embeddings = OpenAIEmbeddings(openai_api_key="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")
     vectordb = FAISS.load_local(cfg.DB_FAISS_PATH, embeddings)
-    llm = build_llm()
+    llm = build_llm(local)
     qa_prompt = set_qa_prompt()
     dbqa = build_retrieval_qa(llm, qa_prompt, vectordb)
 

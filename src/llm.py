@@ -7,7 +7,7 @@ from langchain.llms import CTransformers
 from dotenv import find_dotenv, load_dotenv
 import box
 import yaml
-
+from langchain.llms import OpenAI
 # Load environment variables from .env file
 load_dotenv(find_dotenv())
 
@@ -16,12 +16,15 @@ with open('config/config.yml', 'r', encoding='utf8') as ymlfile:
     cfg = box.Box(yaml.safe_load(ymlfile))
 
 
-def build_llm():
+def build_llm(local=True):
     # Local CTransformers model
-    llm = CTransformers(model=cfg.MODEL_BIN_PATH,
-                        model_type=cfg.MODEL_TYPE,
-                        config={'max_new_tokens': cfg.MAX_NEW_TOKENS,
-                                'temperature': cfg.TEMPERATURE}
-                        )
+    if local:
+        llm = CTransformers(model=cfg.MODEL_BIN_PATH,
+                                model_type=cfg.MODEL_TYPE,
+                                config={'max_new_tokens': cfg.MAX_NEW_TOKENS,
+                                        'temperature': cfg.TEMPERATURE}
+                                )
+    else:
+        llm = OpenAI(openai_api_key="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")
 
     return llm

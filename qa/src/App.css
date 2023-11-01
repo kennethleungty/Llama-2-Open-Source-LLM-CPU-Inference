@@ -1,0 +1,162 @@
+.App {
+  text-align: center;
+  background: linear-gradient(to right, blue, black); /* Gradient background from blue to black */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+/* Add this for the new heading */
+.CyberChad {
+  font-size: 4em;
+  font-weight: bold;
+  margin: 20px 0;
+  color: #61dafb;
+}
+
+/* ... (rest of your styles) ... */
+
+/* Styles for the search bar container */
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;  /* Increased width to make it longer on the x-axis */
+  margin: 20px auto;  /* Centering horizontally with auto margin */
+}
+
+/* Styles for the search input */
+.search-input {
+  width: 100%;
+  padding: 8px 20px;  /* Reduced vertical padding to make it narrower on the y-axis */
+  font-size: 1em;   
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* ... (rest of your styles) ... */
+
+
+/* Styles for the search button */
+.search-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #61dafb;
+  color: #000;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #4fa8d6;
+}
+
+.madaras-logo {
+  font-size: 10px;
+  font-family: 'DAvid'
+}
+
+/* ... (your existing styles) ... */
+
+/* Styles for the PDF drop button */
+/* ... (previous styles) ... */
+
+/* Styles for the PDF drop button */
+.pdf-drop-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border: 3px solid #61dafb;  /* Solid border */
+  border-radius: 50%;  /* Circular shape */
+  background-color: #61dafb;
+  color: #fff;
+  font-size: 2.0em;  /* Bigger plus sign */
+  font-weight: bold;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pdf-drop-button span:nth-child(1) {
+  margin-bottom: -10px;  /* Adjust position for the plus sign */
+}
+
+.pdf-drop-button span:nth-child(2) {
+  font-size: 0.3em;  /* Slightly smaller text for 'PDF' */
+}
+
+.pdf-drop-button:hover {
+  background-color: #6000;
+}
+
+.profile-pics {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;  /* Adjust this value to change the space between the pictures */
+}
+
+.profile-pic {
+  width: 50px;  /* Adjust this value to change the size of the pictures */
+  border-radius: 50%;  /* Optional: for circular pictures */
+}
+.result-container {
+  max-height: 0px;
+  transition: max-height 0.5s ease-out;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9; /* Light grey background */
+  max-width: 80%;
+  overflow: auto; /* Add scroll if content is too large */
+  font-family: 'Courier New', Courier, monospace; /* Monospace font for better readability */
+  font-size: 14px;
+  color: #333; /* Dark text color for better readability */
+}
+
+.search-result {
+  padding: 10px;
+}
+
+.search-result .query,
+.search-result .result {
+  margin-bottom: 10px;
+}
+
+.search-result .source-documents {
+  margin-top: 10px;
+}
+
+.search-result .source-documents .document {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 5px;
+}
