@@ -15,8 +15,8 @@ with open('config/config.yml', 'r', encoding='utf8') as ymlfile:
 
 
 # Build vector database
-def run_db_build(local=True):
-    loader = DirectoryLoader(cfg.DATA_PATH,
+def run_db_build(local=True, path=cfg.DATA_PATH):
+    loader = DirectoryLoader(path,
                              glob='*.pdf',
                              loader_cls=PyPDFLoader)
     documents = loader.load()

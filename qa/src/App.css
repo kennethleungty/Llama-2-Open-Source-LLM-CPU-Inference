@@ -36,49 +36,77 @@
 
 /* ... (rest of your styles) ... */
 
+
 /* Styles for the search bar container */
 .search-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: 100%;  /* Increased width to make it longer on the x-axis */
-  margin: 20px auto;  /* Centering horizontally with auto margin */
+  width: 100%;
+  margin: 20px auto;
+}
+
+/* Styles for the dropdown */
+.directory-dropdown {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px; /* Adjust as needed */
+  border: 2px solid #ccc; /* Adjust border color as needed */
+  border-radius: 4px; /* Optional: for rounded corners */
 }
 
 /* Styles for the search input */
 .search-input {
-  width: 100%;
-  padding: 8px 20px;  /* Reduced vertical padding to make it narrower on the y-axis */
-  font-size: 1em;   
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  flex: 10;
+  padding: 10px;
+  margin-right: 10px; /* Adjust as needed */
+  border: 2px solid #ccc; /* Adjust border color as needed */
+  border-radius: 4px; /* Optional: for rounded corners */
 }
-
-/* ... (rest of your styles) ... */
-
 
 /* Styles for the search button */
 .search-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #ccc; /* Adjust border color as needed */
+  border-radius: 4px; /* Optional: for rounded corners */
+  background-color: #008CBA; /* Adjust background color as needed */
+  color: white; /* Adjust text color as needed */
   cursor: pointer;
-  background-color: #61dafb;
-  color: #000;
-  transition: background-color 0.3s ease;
 }
 
+/* Optional: for a hover effect on the button */
 .search-button:hover {
-  background-color: #4fa8d6;
+  background-color: #005f5f; /* Adjust hover background color as needed */
 }
+
 
 .madaras-logo {
   font-size: 10px;
   font-family: 'DAvid'
 }
+.new-directory-input {
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
 
+.create-directory-button {
+  flex: 1;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #008CBA;
+  color: white;
+  cursor: pointer;
+}
+
+.create-directory-button:hover {
+  background-color: #005f5f;
+}
 /* ... (your existing styles) ... */
 
 /* Styles for the PDF drop button */
@@ -159,4 +187,14 @@
   border: 1px solid #ccc;
   padding: 10px;
   margin-top: 5px;
+}
+/* Styles for the search bar container */
+.newdir-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  margin: 20px auto;
 }

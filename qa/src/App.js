@@ -1,4 +1,4 @@
-  import React, { useState, useRef } from 'react';
+  import React, { useState, useRef,useEffect } from 'react';
   import './App.css';
   import profilePic1 from './david.png';  // Adjust the path to match your file structure
   import profilePic2 from './harel.png';
@@ -8,6 +8,41 @@
     const inputRef = useRef(null);
     const fileInputRef = useRef(null); // Ref for the hidden file input
     const [result, setResult] = useState(null);
+    const [directories, setDirectories] = useState([]);
+    const newDirectoryRef = useRef(null);
+    const [currentDirectory, setCurrentDirectory] = useState('');
+    useEffect(() => {
+      fetchDirectories();
+    }, []);
+
+    const handleDirectoryChange = (event) => {
+      setCurrentDirectory(event.target.value);
+    };
+  
+  
+    const fetchDirectories = async () => {
+      const response = await fetch('http://127.0.0.1:8000/directories');
+      const data = await response.json();
+      setDirectories(data.directories);
+    };
+    const handleCreateDirectory = async () => {
+      const directory = newDirectoryRef.current.value;
+      if (directory) {
+        const response = await fetch('http://127.0.0.1:8000/create-directory', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ input :directory }),
+        });
+        if (response.ok) {
+          
+        } else {
+          console.error('Failed to create directory');
+        }
+      }
+      fetchDirectories();  // Update the directory list
+    };
 
     const handleSearch = async () => {
       if (searchQuery.trim() === '') {
@@ -43,29 +78,41 @@
 
     const handlePDFUpload = async (event) => {
       const file = event.target.files[0];
-      if (file && file.name.endsWith('.pdf')) {
+      if (file && file.name.endsWith('.pdf') &&currentDirectory) {
         const formData = new FormData();
-        formData.append('file', file);
-
+        console.log(currentDirectory);
+        formData.append('file', file);  // Append the file under the key 'file'
+        formData.append('directory', currentDirectory);  // Append the directory under the key 'directory'
+    
         const response = await fetch('http://127.0.0.1:8000/upload-pdf', {
           method: 'POST',
           body: formData
         });
-
+    
         const data = await response.json();
-        console.log(data);
         alert(`Response from server: ${JSON.stringify(data)}`);
       } else {
-        alert('Please select a PDF file.');
+        console.log(currentDirectory);
+        alert('Please select a PDF file and a directory');
       }
     }
+    
 
     return (
       <div className="App">
+        
         <header className="App-header">
-          <div className="CyberChad">ChadPDF</div>
+          <div className="CyberChad">ChadPDF </div>
 
           <div className="search-container">
+          
+          <select className="directory-dropdown" className="directory-dropdown"
+          value={currentDirectory}
+          onChange={handleDirectoryChange}>
+          {directories.map((dir, index) => (
+            <option value={dir} key={index}>{dir}</option>
+          ))}
+        </select>
             <input 
               type="text" 
               placeholder="Search..." 
@@ -74,6 +121,7 @@
               onChange={() => setSearchQuery(inputRef.current.value)}
             />
             <button className="search-button" onClick={handleSearch}>Go</button>
+
           </div>
 
           <div className="madaras-logo">By Madars Podcast</div>
@@ -89,11 +137,24 @@
             style={{ display: 'none' }}
             onChange={handlePDFUpload}
           />
+      <div className="newdir-container">                              <input 
+        type="text" 
+        placeholder="New directory..." 
+        className="new-directory-input" 
+        ref={newDirectoryRef}
+      />
+      
+      <button className="create-directory-button" onClick={handleCreateDirectory}>
+        Create Directory
+      </button></div>
+
+
         </header>
         <div className="profile-pics">
         <img src={profilePic1} alt="Profile 1" className="profile-pic" />
         <img src={profilePic2} alt="Profile 2" className="profile-pic" />
       </div>
+      
       <div>
 
       {result && result.result && (
