@@ -11,9 +11,9 @@ class DatabaseManager:
             cls._instance._is_local = None
         return cls._instance
 
-    def connect(self):
+    def connect(self,path=None):
         if self._connection is None:
-            self._connection = setup_dbqa(self._is_local)
+            self._connection = setup_dbqa(self._is_local,path=path)
         return self._connection
     
     def set_local_true(self):

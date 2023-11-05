@@ -9,6 +9,8 @@
     const fileInputRef = useRef(null); // Ref for the hidden file input
     const [result, setResult] = useState(null);
     const [directories, setDirectories] = useState([]);
+    const [files, setFiles] = useState([]);
+    const [isLoading, setisLoading] = useState(false);
     const newDirectoryRef = useRef(null);
     const [currentDirectory, setCurrentDirectory] = useState('');
     useEffect(() => {
@@ -16,7 +18,9 @@
     }, []);
 
     const handleDirectoryChange = (event) => {
+      console.log(event.target.value);
       setCurrentDirectory(event.target.value);
+      fetchFiles(event.target.value);
     };
   
   
@@ -24,6 +28,20 @@
       const response = await fetch('http://127.0.0.1:8000/directories');
       const data = await response.json();
       setDirectories(data.directories);
+      setCurrentDirectory(data.directories[0]);
+      fetchFiles(data.directories[0]);
+    };
+    const fetchFiles = async (currdir) => {
+      const response = await fetch('http://127.0.0.1:8000/fetch-files/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ input :currdir }),
+      });
+      console.log(" asfdasd"+ currdir);
+      const data = await response.json();
+      setFiles(data.files);
     };
     const handleCreateDirectory = async () => {
       const directory = newDirectoryRef.current.value;
@@ -55,7 +73,7 @@
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ input: searchQuery })
+        body: JSON.stringify({ input: searchQuery ,currdir: currentDirectory})
       });
       const data = await response.json();
       setResult(data);  // Set the result state variable
@@ -80,19 +98,18 @@
       const file = event.target.files[0];
       if (file && file.name.endsWith('.pdf') &&currentDirectory) {
         const formData = new FormData();
-        console.log(currentDirectory);
         formData.append('file', file);  // Append the file under the key 'file'
         formData.append('directory', currentDirectory);  // Append the directory under the key 'directory'
-    
+        setisLoading(true);
         const response = await fetch('http://127.0.0.1:8000/upload-pdf', {
           method: 'POST',
           body: formData
         });
-    
+        setisLoading(false);
+        fetchFiles(currentDirectory);
         const data = await response.json();
         alert(`Response from server: ${JSON.stringify(data)}`);
       } else {
-        console.log(currentDirectory);
         alert('Please select a PDF file and a directory');
       }
     }
@@ -100,9 +117,19 @@
 
     return (
       <div className="App">
-        
+                <aside className="sidebar">
+        <h2>Files in {currentDirectory}</h2>
+        <ul>
+          {files.map((file, index) => (
+            <li key={index}>{file}</li> // Replace `file.name` with your actual file name property
+          ))}
+        </ul>
+      </aside>
+      <div className="content">
         <header className="App-header">
-          <div className="CyberChad">ChadPDF </div>
+          <div className="CyberChad">ChadPDF
+
+          </div>
 
           <div className="search-container">
           
@@ -129,7 +156,12 @@
             <span>+</span>
             <span>PDF</span>
           </div>
-
+          <br></br>
+          {isLoading && (
+          <div >
+          <div className="loader"></div>
+          <center className="randiv">Loading... this may take some time.</center></div>
+          ) }
           {/* Hidden file input for PDF uploading */}
           <input 
             type="file" 
@@ -150,6 +182,7 @@
 
 
         </header>
+
         <div className="profile-pics">
         <img src={profilePic1} alt="Profile 1" className="profile-pic" />
         <img src={profilePic2} alt="Profile 2" className="profile-pic" />
@@ -179,6 +212,7 @@
     )}
         
     </div>
+      </div>
       </div>
     );
   }

@@ -47,9 +47,11 @@ async def create_directory(directory: Request):
 async def query_model(request: Request):
     data = await request.json()
     query_text = data.get('input', 'What is a windows process?')
+    query_directory = data.get('currdir','db_faiss')
     db_mng = DatabaseManager()
-    db_conn = db_mng.connect()
+    db_conn = db_mng.connect(path=query_directory)
     print(query_text)
+    print(query_directory)
     response = db_conn({'query': query_text})
 
     return response
@@ -57,7 +59,7 @@ async def query_model(request: Request):
 
 @app.post("/upload-pdf")
 async def upload_pdf(file: UploadFile, directory: str =Form(...)):
-    print("hi")
+    
     # Ensure the file is a PDF
     if file.filename.endswith(".pdf"):
         # Sanitize directory and filename
@@ -69,6 +71,7 @@ async def upload_pdf(file: UploadFile, directory: str =Form(...)):
         full_path = os.path.join(safe_directory, safe_filename)
         with open(full_path, "wb") as f:
             shutil.copyfileobj(file.file, f)
+            run_db_build(path=directory, vec_path=directory)
         return {"filename": safe_filename, "directory": safe_directory, "status": "file uploaded"}
     raise HTTPException(status_code=400, detail="File not a PDF")
 
@@ -77,6 +80,19 @@ async def upload_pdf(file: UploadFile, directory: str =Form(...)):
 async def get_directories():
     directories = os.listdir("data")
     return {"directories": directories}
+
+@app.post("/fetch-files")
+async def get_files(directory: Request):
+
+    data = await directory.json()
+    
+    direc = data.get('input', 'data')
+    print(direc)
+    try:
+        files = os.listdir(f"data/{direc}")
+    except Exception as e:
+        return {"files": []}
+    return {"files": files}
 
 @app.post("/delete-files")
 async def delete_files(directory: str):

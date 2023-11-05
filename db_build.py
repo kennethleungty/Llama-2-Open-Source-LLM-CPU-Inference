@@ -15,8 +15,8 @@ with open('config/config.yml', 'r', encoding='utf8') as ymlfile:
 
 
 # Build vector database
-def run_db_build(local=True, path=cfg.DATA_PATH):
-    loader = DirectoryLoader(path,
+def run_db_build(local=True, path=cfg.DATA_PATH,vec_path=cfg.DB_FAISS_PATH):
+    loader = DirectoryLoader(f"data/{path}",
                              glob='*.pdf',
                              loader_cls=PyPDFLoader)
     documents = loader.load()
@@ -31,7 +31,7 @@ def run_db_build(local=True, path=cfg.DATA_PATH):
         embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API)
 
     vectorstore = FAISS.from_documents(texts, embeddings)
-    vectorstore.save_local(cfg.DB_FAISS_PATH)
+    vectorstore.save_local(f"vectorstore/{vec_path}")
 
 if __name__ == "__main__":
     run_db_build()

@@ -1,1 +1,1 @@
-OPENAI_API = "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"
+OPENAI_API = "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"

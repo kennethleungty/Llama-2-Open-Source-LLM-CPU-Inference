@@ -37,13 +37,13 @@ def build_retrieval_qa(llm, prompt, vectordb):
     return dbqa
 
 
-def setup_dbqa(local=True):
+def setup_dbqa(local=True,path=cfg.DB_FAISS_PATH):
     if local:
         embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2",
                                        model_kwargs={'device': 'cpu'})
     else:
         embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API)
-    vectordb = FAISS.load_local(cfg.DB_FAISS_PATH, embeddings)
+    vectordb = FAISS.load_local(f"vectorstore/{path}", embeddings)
     llm = build_llm(local)
     qa_prompt = set_qa_prompt()
     dbqa = build_retrieval_qa(llm, qa_prompt, vectordb)

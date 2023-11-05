@@ -1,12 +1,3 @@
-.App {
-  text-align: center;
-  background: linear-gradient(to right, blue, black); /* Gradient background from blue to black */
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
 .App-logo {
   height: 40vmin;
@@ -197,4 +188,75 @@
   justify-content: center;
   width: 10px;
   margin: 20px auto;
+}
+.loader {
+  
+  border: 4px solid rgba(0, 0, 0, 0.1); /* Light grey border */
+  border-top: 4px solid #3498db; /* Blue border-top */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+.loading-container {
+  display: flex; /* Establishes a flex container */
+  flex-direction: column; /* Stacks flex items vertically */
+  justify-content: center; /* Centers flex items along the main axis */
+  align-items: center; /* Centers flex items along the cross axis */
+  position: fixed; /* Fixes the position over the content */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Optional: adds a semi-transparent overlay */
+  z-index: 1000; /* Ensures it's on top of other content */
+}
+
+.loading-message {
+  /* Your loading message styles */
+  text-align: center;
+  color: white; /* Adjust color as needed */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.App {
+  display: flex; /* Use flexbox layout */
+  min-height: 100vh; /* Minimum height of 100% of the viewport */
+  background: linear-gradient(to right, blue, black); /* Gradient background from blue to black */
+}
+
+.sidebar {
+  flex: 0 0 20%; /* Sidebar takes up 20% of the container width and doesn't grow or shrink */
+  background-color: #333; /* Background color of the sidebar */
+  color: white; /* Text color for the sidebar */
+  padding: 20px; /* Padding inside the sidebar */
+}
+
+.content {
+  flex: 1; /* Content takes up the remaining space */
+  padding: 20px; /* Padding inside the content area */
+}
+
+
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* Add a subtle line between files */
 }
