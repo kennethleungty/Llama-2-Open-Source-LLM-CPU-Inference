@@ -43,6 +43,7 @@ def setup_dbqa(local=True,path=cfg.DB_FAISS_PATH):
                                        model_kwargs={'device': 'cpu'})
     else:
         embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API)
+
     vectordb = FAISS.load_local(f"vectorstore/{path}", embeddings)
     llm = build_llm(local)
     qa_prompt = set_qa_prompt()

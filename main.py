@@ -49,9 +49,10 @@ async def query_model(request: Request):
     query_text = data.get('input', 'What is a windows process?')
     query_directory = data.get('currdir','db_faiss')
     db_mng = DatabaseManager()
-    db_conn = db_mng.connect(path=query_directory)
-    print(query_text)
-    print(query_directory)
+    if query_directory != db_mng.get_context():
+        print("Switched Context")
+        db_mng.switch_context(query_directory)
+    db_conn = db_mng.connect()
     response = db_conn({'query': query_text})
 
     return response
@@ -71,7 +72,8 @@ async def upload_pdf(file: UploadFile, directory: str =Form(...)):
         full_path = os.path.join(safe_directory, safe_filename)
         with open(full_path, "wb") as f:
             shutil.copyfileobj(file.file, f)
-            run_db_build(path=directory, vec_path=directory)
+            mng = DatabaseManager()
+            mng.process_new_items(path=directory,vec_path=directory)
         return {"filename": safe_filename, "directory": safe_directory, "status": "file uploaded"}
     raise HTTPException(status_code=400, detail="File not a PDF")
 

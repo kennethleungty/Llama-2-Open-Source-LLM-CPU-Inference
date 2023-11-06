@@ -204,10 +204,7 @@
   justify-content: center; /* Centers flex items along the main axis */
   align-items: center; /* Centers flex items along the cross axis */
   position: fixed; /* Fixes the position over the content */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+
   background: rgba(0, 0, 0, 0.5); /* Optional: adds a semi-transparent overlay */
   z-index: 1000; /* Ensures it's on top of other content */
 }

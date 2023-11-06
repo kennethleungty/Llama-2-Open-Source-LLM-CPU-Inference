@@ -39,7 +39,6 @@
         },
         body: JSON.stringify({ input :currdir }),
       });
-      console.log(" asfdasd"+ currdir);
       const data = await response.json();
       setFiles(data.files);
     };
@@ -108,7 +107,7 @@
         setisLoading(false);
         fetchFiles(currentDirectory);
         const data = await response.json();
-        alert(`Response from server: ${JSON.stringify(data)}`);
+
       } else {
         alert('Please select a PDF file and a directory');
       }
@@ -158,10 +157,11 @@
           </div>
           <br></br>
           {isLoading && (
-          <div >
-          <div className="loader"></div>
-          <center className="randiv">Loading... this may take some time.</center></div>
-          ) }
+  <div className="loading-container">
+    <div className="loader"></div>
+    <div className="loading-message">Loading... this may take some time.</div>
+  </div>
+)}
           {/* Hidden file input for PDF uploading */}
           <input 
             type="file" 
