@@ -15,7 +15,7 @@ with open('config/config.yml', 'r', encoding='utf8') as ymlfile:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('input',
+    parser.add_argument('--input',
                         type=str,
                         default='How much is the minimum guarantee payable by adidas?',
                         help='Enter the query to pass into the LLM')
